@@ -1,0 +1,2 @@
+a model class represents a table in sql db and collection in no sql db
+an instance of a model represents a database row in sql db and document in no-sql db 
