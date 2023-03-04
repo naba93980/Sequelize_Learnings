@@ -5,7 +5,7 @@ const sequelize = new Sequelize('sequelize_learnings', 'root', 'password', {
     connectTimeout: 5000,
     charset: 'utf8mb4'
   },
-  logging:false,
+  // logging:false,
   host: 'localhost',
   port: 3306,
   pool: {

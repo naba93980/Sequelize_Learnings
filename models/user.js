@@ -13,6 +13,7 @@ const User = sequelize.define("user", {
 },
     {
         timestamps: true,
+        paranoid:true,
         updatedAt: false,
         createdAt: 'create-at',
         tableName: 'users'
