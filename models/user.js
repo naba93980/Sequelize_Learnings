@@ -2,7 +2,15 @@ const { DataTypes } = require('sequelize');
 const { sequelize } = require('../connectDatabase');
 
 const User = sequelize.define("user", {
-    name: DataTypes.STRING,
+    name: {
+        type: DataTypes.STRING,
+        set(value) {
+            this.setDataValue('name', value + 'OK POPO');
+        },
+        get() {
+            return this.getDataValue('name') + this.email
+        }
+    },
     email: {
         type: DataTypes.STRING,
         defaultValue: 'test@gmail.com',
@@ -13,7 +21,7 @@ const User = sequelize.define("user", {
 },
     {
         timestamps: true,
-        paranoid:true,
+        paranoid: true,
         updatedAt: false,
         createdAt: 'create-at',
         tableName: 'users'
