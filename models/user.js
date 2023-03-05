@@ -14,9 +14,18 @@ const User = sequelize.define("user", {
     email: {
         type: DataTypes.STRING,
         defaultValue: 'test@gmail.com',
+        allowNull: false,
+        unique: true,
     },
     gender: {
         type: DataTypes.STRING,
+        validate: {
+            equals: 'male',
+            isIn: {
+                args:  [['males', 'male']],
+                msg: 'please enter males or male'
+            }
+        }
     },
 },
     {
