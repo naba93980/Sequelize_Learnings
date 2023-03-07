@@ -3,15 +3,16 @@ const app = express();
 const PORT = 8000;
 const { connectDB } = require('./connectDatabase');
 const { syncDatabase } = require('./syncDatabase.js');
-const router = require('./routes/userRoute');
+const userRouter = require('./routes/userRoute');
+const postRouter = require('./routes/postRoute');
 
 app.get('/', (req, res) => {
     res.send("Home page");
 });
 
 app.use(express.json())
-app.use('/api/v1',router)
-
+app.use('/api/v1',userRouter)
+app.use('/api/v1',postRouter)
 
 const startServer = async () => {
     const server = app.listen(PORT, () => {

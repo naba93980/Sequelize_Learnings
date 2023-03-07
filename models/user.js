@@ -19,13 +19,13 @@ const User = sequelize.define("user", {
     },
     gender: {
         type: DataTypes.STRING,
-        validate: {
-            equals: 'male',
-            isIn: {
-                args:  [['males', 'male']],
-                msg: 'please enter males or male'
-            }
-        }
+        // validate: {
+        //     equals: 'male',
+        //     isIn: {
+        //         args:  [['males', 'male']],
+        //         msg: 'please enter males or male'
+        //     }
+        // }
     },
 },
     {
