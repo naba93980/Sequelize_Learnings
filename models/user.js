@@ -33,7 +33,21 @@ const User = sequelize.define("user", {
         paranoid: true,
         updatedAt: false,
         createdAt: 'create-at',
-        tableName: 'users'
+        tableName: 'users',
+        hooks: {
+            beforeValidate: (User, options) => {
+                console.log(User.name);
+            },
+            afterValidate: (User, options) => {
+                User.name = 'Nabajyoti Modak'
+                console.log(User.name);
+            }
+        }
     })
+
+User.addHook('afterFind', (User, options) => {
+    console.log(User);
+    console.log(options);
+})
 
 module.exports = User
