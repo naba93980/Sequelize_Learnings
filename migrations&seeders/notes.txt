@@ -1,0 +1,19 @@
+// initialize
+npx sequelize-cli init
+
+// create models
+npx sequelize-cli model:generate --name User --attributes firstName:string,lastName:string,email:string
+
+// create migrations
+npx sequelize-cli db:migrate
+npx sequelize-cli db:migrate:undo
+npx sequelize-cli db:migrate:undo:all
+npx sequelize-cli db:migrate:undo --name 20230326221039-create-student.js
+
+// create seed
+npx sequelize-cli seed:generate --name user-add
+
+// run seed
+npx sequelize-cli db:seed:all
+npx sequelize-cli db:seed --seed 20230327105130-user-add.js
+npx sequelize-cli db:seed:undo --seed 20230327105130-user-add.js
